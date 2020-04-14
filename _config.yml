@@ -1,0 +1,22 @@
+# Site settings
+title: Edge Benchmark
+email: contact@edgebenchmark.com
+url: //edgebenchmark.com
+description: "Edge Benchmark - Measure the speed of your machine learning models on real devices"
+
+
+plugins:
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+# Color settings (hex-codes without the leading hash-tag)
+color:
+  primary-dark: '#fff'
+  links: '#219ab3'
+
+# Footer settings
+footer: © Bisonai 2020
+
+# Build settings
+markdown: kramdown
+permalink: pretty

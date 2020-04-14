@@ -1,0 +1,56 @@
+<section id="showcase" class="container-outer dark fit-page">
+  <div class="container about-container-inner">
+    <span class="main-text">Simple to use</span>
+
+    <hr class="divider light"><br>
+
+    <span class="long-text left-text">First, install Edge Benchmark from <a href="https://pypi.org/project/edge-benchmark-client/">PyPi</a>. You can also install Edge Benchmark Client from <a href="https://github.com/bisonai/edge_benchmark_client">source</a> but we recommend the installation using <i>pip</i>.
+    </span><br>
+
+      <div class="language-bash highlighter-rouge"><div class="highlight highlight-dark"><pre class="highlight highlight-dark"><code>pip <span class="nb">install </span>edge_benchmark </code></pre></div></div>
+
+    <br>
+    <span class="long-text left-text">
+      Next, create a model and send it for benchmarking on real devices. You can select what devices you want to benchmark on. Edge Benchmark also support more detailed settings, like number of used CPUs, GPU use, number of threads and others. For more information, you can browse through <a href="https://edgebenchmark.com/client-documentation/" target="_blank">documentation</a> for Edge Benchmark Client.
+    </span>
+    <br>
+
+    <div class="language-python highlighter-rouge"><div class="highlight highlight-dark"><pre class="highlight highlight-dark"><code><span class="kn">from</span> <span class="nn">edge_benchmark</span> <span class="kn">import</span> <span class="n">Benchmark</span>
+<span class="n">user_token</span> <span class="o">=</span> <span class="s">"demo_token"</span>
+<span class="n">tflite_path</span> <span class="o">=</span> <span class="s">"./model.tflite"</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">Benchmark</span><span class="p">()</span>
+<span class="n">b</span><span class="o">.</span><span class="n">all_devices</span><span class="p">()</span>
+<span class="n">b</span><span class="o">.</span><span class="n">set_token</span><span class="p">(</span><span class="n">user_token</span><span class="p">)</span>
+<span class="n">measurements</span> <span class="o">=</span> <span class="n">b</span><span class="o">.</span><span class="n">measure</span><span class="p">(</span><span class="n">tflite_path</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">measurements</span><span class="p">)</span></code></pre></div></div>
+
+    <br>
+    <span class="long-text left-text">
+      Finally, client returns measurements results in JSON format. Measurements contain both global and layer-wise statistics executed on selected devices. We recommend to use our <a href="https://edgebenchmark.com/login/" target="_blank">Edge Benchmark Platform</a> where you can easily see and compare benchmark results of your model.
+    </span>
+    <br>
+
+<div class="language-shell highlighter-rouge"><div class="highlight highlight-dark"><pre class="highlight highlight-dark"><code><span class="o">{</span>
+    <span class="s2">"name"</span>: <span class="s2">"model.tflite"</span>,
+    <span class="s2">"res_url"</span>: <span class="s2">"https://edgebenchmark.com/Vqfx8jophz"</span>,
+    <span class="s2">"engine"</span>: <span class="s2">"tflite-1.15"</span>,
+    <span class="s2">"run_type"</span>: <span class="s2">"CPU"</span>,
+    <span class="s2">"measurements"</span>: <span class="o">[</span>
+    <span class="o">{</span>
+        <span class="s2">"device"</span>: <span class="s2">"Google Pixel 1"</span>,
+        <span class="s2">"total_avg"</span>: 12.4,
+        <span class="s2">"total_std"</span>: 0.02,
+        <span class="s2">"layers"</span>: <span class="o">[</span>
+            <span class="o">{</span><span class="s2">"name"</span>: <span class="s2">"conv1"</span>, <span class="s2">"avg"</span>: 0.4, <span class="s2">"std"</span>: 0.000001<span class="o">}</span>,
+            <span class="o">{</span><span class="s2">"name"</span>: <span class="s2">"conv2"</span>, <span class="s2">"avg"</span>: 0.92, <span class="s2">"std"</span>: 0.0027<span class="o">}</span>,
+            ...
+        <span class="o">]</span>
+    <span class="o">}</span>,
+    <span class="o">{}</span>,
+    ...
+    <span class="o">]</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+  </div>
+</section>

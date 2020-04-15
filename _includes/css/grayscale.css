@@ -1009,6 +1009,11 @@ div.feature {
     margin-bottom: 2em;
 }
 
-form div.form-group, form button {
+form div.form-group, form button, div.alert {
     width: 300px;
+}
+
+div.alert {
+    margin: 1em;
+    padding: 0.5em;
 }

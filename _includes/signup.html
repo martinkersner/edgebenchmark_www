@@ -5,12 +5,42 @@
     <hr class="divider light"><br>
 
     <center>
-    <form action="https://usebasin.com/f/57d236952aa0" method="post">
+
+    <form action="https://usebasin.com/f/57d236952aa0" method="post" id="my-contact-form">
       <div class="form-group">
-        <input name="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email">
+        <input name="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email" required>
       </div>
       <button type="submit" class="btn btn-primary">Sign up</button>
+      <div id="form-message-success" class="alert alert-success" role="alert" style="display: none">
+        Success! We will contact you soon!
+      </div>
+      <div id="form-message-error" class="alert alert-danger" role="alert" style="display: none">
+        Error during sign up! Contact us at  <a href="mailto:contact@edgebenchmark.com" class="alert-link">contact@edgebenchmark.com</a>
+      </div>
     </form>
+
+
+      <script type="text/javascript">
+        var form = document.getElementById("my-contact-form");
+        var formMessageSuccess = document.getElementById("form-message-success");
+        var formMessageError = document.getElementById("form-message-errror");
+        form.onsubmit = function(event) {
+          event.preventDefault();
+          var formData = new FormData(form);
+          var xhr = new XMLHttpRequest();
+          xhr.open("POST", form.action, true);
+          xhr.onload = function(e) {
+            var response = JSON.parse(xhr.response);
+            if (xhr.status === 200) {
+              formMessageSuccess.style.display = "block";
+            } else {
+              formMessageError.style.display = "block";
+            }
+          };
+          xhr.send(formData);
+        };
+      </script>
+
     </center>
 
   </div>

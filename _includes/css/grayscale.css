@@ -1021,6 +1021,7 @@ div.alert {
 button.btn-signup {
     background-color: #ed2939;
     border-color: #000;
+    font-weight: bold;
 }
 
 button.btn-signup:hover,
@@ -1029,4 +1030,29 @@ button.btn-signup.active {
     outline: 0;
     border-color: #000;
     background-color: #ff4050;
+}
+
+div.box-img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+div.box-img img {
+    margin-left: auto;
+    margin-right: auto
+}
+
+.img-container {
+    height: 200px;
+    position: relative;
+}
+
+.center {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 }

@@ -19,7 +19,7 @@ $(window).scroll(function() {
   var scroll = $(window).scrollTop();
   var about_position = $("#about").offset().top - 20;
   var features_position = $("#features").offset().top - 20;
-  var showcase_position = $("#showcase").offset().top - 20;
+  var showcase_position = $("#how-to-use").offset().top - 20;
   var pricing_position = $("#pricing").offset().top - 20;
   var signup_position = $("#signup").offset().top - 20;
 

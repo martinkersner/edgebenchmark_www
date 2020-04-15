@@ -1017,3 +1017,16 @@ div.alert {
     margin: 1em;
     padding: 0.5em;
 }
+
+button.btn-signup {
+    background-color: #ed2939;
+    border-color: #000;
+}
+
+button.btn-signup:hover,
+button.btn-signup:focus,
+button.btn-signup.active {
+    outline: 0;
+    border-color: #000;
+    background-color: #ff4050;
+}
